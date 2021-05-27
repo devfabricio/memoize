@@ -34,13 +34,13 @@ describe('Memoize', () => {
     const memoizedToBinary = memoize(toBinarySpy);
 
     expect(toBinarySpy).not.toHaveBeenCalled();
-    
+
     expect(memoizedToBinary(123)).toBe('1111011');
     expect(toBinarySpy).toHaveBeenCalledTimes(1);
-    
+
     expect(memoizedToBinary(123)).toBe('1111011');
     expect(toBinarySpy).toHaveBeenCalledTimes(1);
-    
+
     expect(memoizedToBinary(123)).toBe('1111011');
     expect(toBinarySpy).toHaveBeenCalledTimes(1);
   });
@@ -50,19 +50,19 @@ describe('Memoize', () => {
     const memoizedToBinary = memoize(toBinarySpy);
 
     expect(toBinarySpy).not.toHaveBeenCalled();
-    
+
     expect(memoizedToBinary(123)).toBe('1111011');
     expect(toBinarySpy).toHaveBeenCalledTimes(1);
-    
+
     expect(memoizedToBinary(123)).toBe('1111011');
     expect(toBinarySpy).toHaveBeenCalledTimes(1);
-    
+
     expect(memoizedToBinary(1234)).toBe('10011010010');
     expect(toBinarySpy).toHaveBeenCalledTimes(2);
 
     expect(memoizedToBinary(1234)).toBe('10011010010');
     expect(toBinarySpy).toHaveBeenCalledTimes(2);
-    
+
     expect(memoizedToBinary(12345)).toBe('11000000111001');
     expect(toBinarySpy).toHaveBeenCalledTimes(3);
 
@@ -83,17 +83,17 @@ describe('Memoize', () => {
     // order #1
     expect(getTotalPriceMemoized(orderKory)).toBe(27.8);
     expect(getTotalPriceSpy).toHaveBeenCalledTimes(1);
-    
+
     expect(getTotalPriceMemoized(orderKory)).toBe(27.8);
     expect(getTotalPriceSpy).toHaveBeenCalledTimes(1);
-    
+
     // order #2
     expect(getTotalPriceMemoized(orderMozelle)).toBe(67.97);
     expect(getTotalPriceSpy).toHaveBeenCalledTimes(2);
-    
+
     expect(getTotalPriceMemoized(orderMozelle)).toBe(67.97);
     expect(getTotalPriceSpy).toHaveBeenCalledTimes(2);
-    
+
     // order #3
     expect(getTotalPriceMemoized(orderMuhammad)).toBe(38.95);
     expect(getTotalPriceSpy).toHaveBeenCalledTimes(3);
@@ -118,6 +118,8 @@ describe('Memoize', () => {
       ]
     };
 
+    console.log('typeof sampleOrder', typeof sampleOrder)
+
     const { orderId, customer, items } = sampleOrder;
     const sampleOrderWithReorderedKeys_1 = { items, customer, orderId };
     const sampleOrderWithReorderedKeys_2 = { customer, items, orderId };
@@ -136,13 +138,13 @@ describe('Memoize', () => {
 
     expect(memoizedPower(3, 3)).toBe(27);
     expect(powerSpy).toHaveBeenCalledTimes(1);
-    
+
     expect(memoizedPower(4, 4)).toBe(256);
     expect(powerSpy).toHaveBeenCalledTimes(2);
 
     expect(memoizedPower(3, 3)).toBe(27);
-    expect(powerSpy).toHaveBeenCalledTimes(2);    
-    
+    expect(powerSpy).toHaveBeenCalledTimes(2);
+
     expect(memoizedPower(4, 4)).toBe(256);
     expect(powerSpy).toHaveBeenCalledTimes(2);
   });
