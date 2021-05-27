@@ -118,8 +118,6 @@ describe('Memoize', () => {
       ]
     };
 
-    console.log('typeof sampleOrder', typeof sampleOrder)
-
     const { orderId, customer, items } = sampleOrder;
     const sampleOrderWithReorderedKeys_1 = { items, customer, orderId };
     const sampleOrderWithReorderedKeys_2 = { customer, items, orderId };
